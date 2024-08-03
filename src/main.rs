@@ -1,4 +1,5 @@
 use clap::{Parser, Subcommand};
+use rix::compile;
 use std::path::PathBuf;
 
 #[derive(Parser)]
@@ -23,5 +24,14 @@ enum Commands {
 fn main() {
 	let cli = Cli::parse();
 
-	if let Some(Commands::Eval { expr, file }) = cli.command {}
+	match cli.command {
+		Some(Commands::Eval { expr, file: _ }) => {
+			if let Some(expr) = expr {
+				let ast = rnix::Root::parse(&expr);
+
+				compile(&ast.tree().expr().unwrap());
+			}
+		}
+		_ => (),
+	}
 }

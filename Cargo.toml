@@ -6,4 +6,7 @@ edition = "2021"
 [dependencies]
 blake3 = { version = "1.5.3", features = ["pure", "rayon", "serde"] }
 clap = { version = "4.5.13", features = ["derive"] }
+cranelift = { version = "0.110.1", features = ["core", "interpreter", "jit", "module", "object"] }
+memmap2 = "0.9.4"
 rnix = "0.11.0"
+target-lexicon = { version = "0.12.16", features = ["std"] }
