@@ -1,0 +1,9 @@
+[package]
+name = "rix"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+blake3 = { version = "1.5.3", features = ["pure", "rayon", "serde"] }
+clap = { version = "4.5.13", features = ["derive"] }
+rnix = "0.11.0"
